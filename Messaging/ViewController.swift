@@ -18,7 +18,19 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var createButton: UIButton!
     
+
+    
     @IBAction func createButtonPressed(_ sender: UIButton) {
+//        let content = UNMutableNotificationContent()
+//        content.title = "\(senderInput)"
+//        content.body = "\(textInput)"
+//        content.badge = 1
+        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
     }
     
     override func viewDidLoad() {
@@ -26,6 +38,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //      UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+        //  })
     }
 
     override func didReceiveMemoryWarning() {
