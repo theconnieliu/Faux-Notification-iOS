@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 class ViewController: UIViewController {
 
@@ -21,15 +23,15 @@ class ViewController: UIViewController {
 
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
-//        let content = UNMutableNotificationContent()
-//        content.title = "\(senderInput)"
-//        content.body = "\(textInput)"
-//        content.badge = 1
-        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
-        
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        let content = UNMutableNotificationContent()
+        content.title = "Placeholder Sender"
+        content.body = "Placeholder Text"
+        content.badge = 1
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
     }
     
@@ -38,8 +40,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //      UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-        //  })
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+        })
     }
 
     override func didReceiveMemoryWarning() {
