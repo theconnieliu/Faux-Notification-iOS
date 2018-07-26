@@ -22,18 +22,19 @@ class ViewController: UIViewController {
    
     @IBAction func createButtonPressed(_ sender: UIButton) {
         
-        let content = UNMutableNotificationContent()
-        content.title = senderInput.text ?? "Anonymous"
-        content.body = textInput.text ?? "Message from Anonymous"
-        content.badge = 1
-        
-        let uuid = UUID().uuidString
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
-
-        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        let content = UNMutableNotificationContent()
+//
+//        content.title = senderInput.text ?? "Anonymous"
+//        content.body = textInput.text ?? "Message from Anonymous"
+//        content.badge = 1
+//
+//        let uuid = UUID().uuidString
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
+//
+//        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+//
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     override func viewDidLoad() {
@@ -47,6 +48,43 @@ class ViewController: UIViewController {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        //        if identifier == "showQueue" {
+        //            print("Transitioning to the Queue List")
+        //        }
+        switch identifier {
+        case "showQueue":
+            print("show queue pressed")
+            
+        case "createNotif":
+            //print("create Notification pressed")
+            let content = UNMutableNotificationContent()
+            
+            content.title = senderInput.text ?? "Anonymous"
+            content.body = textInput.text ?? "Message from Anonymous"
+            content.badge = 1
+           
+            
+            let uuid = UUID().uuidString
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
+            let destination = segue.destination as! ListNotificationQueueTableViewController
+            
+            destination.notifications.append(content)
+            
+        default:
+            print("unexpected segue identifier")
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

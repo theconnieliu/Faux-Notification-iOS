@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ListNotificationQueueTableViewController: UITableViewController {
+    
+    var notifications = [UNMutableNotificationContent]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
 
     override func viewDidLoad() {
@@ -35,25 +42,58 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return notifications.count
+        //return notifications.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listNotificationQueueTableViewCell", for: indexPath) as! ListNotificationQueueTableViewCell
-        cell.senderQueueLabel.text = "note's title"
-        cell.contentQueueLabel.text = "note's modification time"
+        
+        let notif = notifications[indexPath.row]
+
+        cell.senderQueueLabel.text = notif.title
+        cell.contentQueueLabel.text = notif.body
+        cell.deliveryTimeLabel.text = "Time"
 
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        
-        if identifier == "showQueue" {
-            print("Transitioning to the Queue List")
-        }
-    }
+    //MESSING AROUND OMG HELP
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let identifier = segue.identifier else { return }
+//
+////        if identifier == "showQueue" {
+////            print("Transitioning to the Queue List")
+////        }
+//        switch identifier {
+//        case "showQueue":
+//            print("show queue pressed")
+//
+//        case "createNotif":
+//            //print("create Notification pressed")
+//            let content = UNMutableNotificationContent()
+//
+//            content.title = senderInput.text ?? "Anonymous"
+//            content.body = textInput.text ?? "Message from Anonymous"
+//            content.badge = 1
+//
+//            let uuid = UUID().uuidString
+//
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
+//
+//            let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+//
+//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//
+//        default:
+//            print("unexpected segue identifier")
+//        }
+//    }
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
