@@ -12,7 +12,6 @@ import UserNotifications
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var senderInput: UITextField!
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var dateInput: UIDatePicker!
@@ -21,16 +20,14 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var createButton: UIButton!
    
-
-    
     @IBAction func createButtonPressed(_ sender: UIButton) {
+        
         let content = UNMutableNotificationContent()
         content.title = senderInput.text ?? "Anonymous"
         content.body = textInput.text ?? "Message from Anonymous"
         content.badge = 1
-
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: dateInput.date.timeIntervalSinceNow, repeats: false)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 10, repeats: false)
 
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
 
@@ -48,13 +45,6 @@ class ViewController: UIViewController {
         
         
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let height: CGFloat = 50 //whatever height you want to add to the existing height
-//        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-//
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
