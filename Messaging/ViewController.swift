@@ -27,12 +27,13 @@ class ViewController: UIViewController {
         content.body = textInput.text ?? "Message from Anonymous"
         content.badge = 1
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 10, repeats: false)
+        let uuid = UUID().uuidString
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
 
-        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        
     }
     
     override func viewDidLoad() {
