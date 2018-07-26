@@ -42,7 +42,16 @@ class ViewController: UIViewController {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
+        
+        
     }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        let height: CGFloat = 50 //whatever height you want to add to the existing height
+//        let bounds = self.navigationController!.navigationBar.bounds
+//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+//
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,10 +60,10 @@ class ViewController: UIViewController {
     
     func setupViews() {
         // nothing yet
-        headerView.layer.shadowOffset = CGSize(width: 0, height: 1)
-        headerView.layer.shadowOpacity = 0.05
-        headerView.layer.shadowColor = UIColor.black.cgColor
-        headerView.layer.shadowRadius = 35
+//        headerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+//        headerView.layer.shadowOpacity = 0.05
+//        headerView.layer.shadowColor = UIColor.black.cgColor
+//        headerView.layer.shadowRadius = 35
         createButton.layer.cornerRadius = 7
         createButton.layer.masksToBounds = true
         textInput.layer.cornerRadius = 6
