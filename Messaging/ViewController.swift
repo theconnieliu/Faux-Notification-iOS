@@ -17,18 +17,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var dateInput: UIDatePicker!
     @IBAction func dateInputSelected(_ sender: UIDatePicker) {
+        
     }
     @IBOutlet weak var createButton: UIButton!
-    
+   
 
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
         let content = UNMutableNotificationContent()
-        content.title = "Placeholder Sender"
-        content.body = "Placeholder Text"
+        content.title = senderInput.text ?? "Anonymous"
+        content.body = textInput.text ?? "Message from Anonymous"
         content.badge = 1
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: dateInput.date.timeIntervalSinceNow, repeats: false)
+
         let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
