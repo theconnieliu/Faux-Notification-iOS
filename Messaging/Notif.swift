@@ -10,8 +10,8 @@ import Foundation
 
 class Notif {
     
-    var name : String = ""
-    var message : String = ""
+    var title : String = ""
+    var body : String = ""
     var triggerTime : Date = Date()
     var uuid : String = ""
 }

@@ -11,6 +11,8 @@ import UserNotifications
 
 class ListNotificationQueueTableViewController: UITableViewController {
     
+    
+    
     var notifications = [UNMutableNotificationContent]() {
         didSet {
             tableView.reloadData()
@@ -50,11 +52,17 @@ class ListNotificationQueueTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listNotificationQueueTableViewCell", for: indexPath) as! ListNotificationQueueTableViewCell
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 100.0;
+        
         let notif = notifications[indexPath.row]
 
         cell.senderQueueLabel.text = notif.title
         cell.contentQueueLabel.text = notif.body
         cell.deliveryTimeLabel.text = "Time"
+        
+        cell.contentQueueLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.contentQueueLabel.numberOfLines = 0
 
         return cell
     }

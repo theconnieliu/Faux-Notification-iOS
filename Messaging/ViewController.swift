@@ -62,10 +62,12 @@ class ViewController: UIViewController {
             //print("create Notification pressed")
             let content = UNMutableNotificationContent()
             
+            
+            
             content.title = senderInput.text ?? "Anonymous"
             content.body = textInput.text ?? "Message from Anonymous"
             content.badge = 1
-           
+            
             
             let uuid = UUID().uuidString
             
@@ -78,6 +80,8 @@ class ViewController: UIViewController {
             let destination = segue.destination as! ListNotificationQueueTableViewController
             
             destination.notifications.append(content)
+            
+            
             
         default:
             print("unexpected segue identifier")
