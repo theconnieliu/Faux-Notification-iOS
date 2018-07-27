@@ -86,7 +86,7 @@ class ViewController: UIViewController {
             
             let destination = segue.destination as! ListNotificationQueueTableViewController
             
-            destination.notifications.append(content)
+            destination.notifications.append(contentBack)
             
             
             

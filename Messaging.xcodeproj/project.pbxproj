@@ -15,6 +15,7 @@
 		6F08BE742109218E0073D92D /* ListNotificationQueueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F08BE732109218E0073D92D /* ListNotificationQueueTableViewController.swift */; };
 		6F08BE76210935630073D92D /* ListNotificationQueueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F08BE75210935630073D92D /* ListNotificationQueueTableViewCell.swift */; };
 		6F3A6C0B210A75190037F07A /* Notif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A6C0A210A75180037F07A /* Notif.swift */; };
+		6F3A6C0D210BB0660037F07A /* ConvertDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A6C0C210BB0650037F07A /* ConvertDateToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		6F08BE732109218E0073D92D /* ListNotificationQueueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotificationQueueTableViewController.swift; sourceTree = "<group>"; };
 		6F08BE75210935630073D92D /* ListNotificationQueueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotificationQueueTableViewCell.swift; sourceTree = "<group>"; };
 		6F3A6C0A210A75180037F07A /* Notif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notif.swift; sourceTree = "<group>"; };
+		6F3A6C0C210BB0650037F07A /* ConvertDateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDateToString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				6F08BE6321078D260073D92D /* ViewController.swift */,
 				6F3A6C0A210A75180037F07A /* Notif.swift */,
 				6F08BE6521078D260073D92D /* Main.storyboard */,
+				6F3A6C0C210BB0650037F07A /* ConvertDateToString.swift */,
 				6F08BE732109218E0073D92D /* ListNotificationQueueTableViewController.swift */,
 				6F08BE75210935630073D92D /* ListNotificationQueueTableViewCell.swift */,
 				6F08BE6821078D290073D92D /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				6F08BE76210935630073D92D /* ListNotificationQueueTableViewCell.swift in Sources */,
 				6F3A6C0B210A75190037F07A /* Notif.swift in Sources */,
 				6F08BE742109218E0073D92D /* ListNotificationQueueTableViewController.swift in Sources */,
+				6F3A6C0D210BB0660037F07A /* ConvertDateToString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

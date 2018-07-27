@@ -12,8 +12,7 @@ import UserNotifications
 class ListNotificationQueueTableViewController: UITableViewController {
     
     
-    
-    var notifications = [UNMutableNotificationContent]() {
+    var notifications = [Notif]() {
         didSet {
             tableView.reloadData()
         }
@@ -59,7 +58,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
         cell.senderQueueLabel.text = notif.title
         cell.contentQueueLabel.text = notif.body
-        cell.deliveryTimeLabel.text = "Time"
+        cell.deliveryTimeLabel.text = notif.triggerTime.toString(dateFormat: "MM-dd-yyyy HH:mm:ss")
         
         cell.contentQueueLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.contentQueueLabel.numberOfLines = 0
