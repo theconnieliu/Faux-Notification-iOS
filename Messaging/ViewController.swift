@@ -59,17 +59,24 @@ class ViewController: UIViewController {
             print("show queue pressed")
             
         case "createNotif":
-            //print("create Notification pressed")
+            
+            //Create Notif Object
+            let contentBack = Notif()
+            contentBack.title = senderInput.text ?? "Anonymous"
+            contentBack.body = textInput.text ?? "Message from Anonymous"
+            contentBack.triggerTime = dateInput.date
+            
+            //Create UNMutableNotification
             let content = UNMutableNotificationContent()
             
-            
-            
-            content.title = senderInput.text ?? "Anonymous"
-            content.body = textInput.text ?? "Message from Anonymous"
+            content.title = contentBack.title
+            content.body = contentBack.body
             content.badge = 1
             
-            
             let uuid = UUID().uuidString
+            
+            //Set Notif's uuid
+            contentBack.uuid = uuid
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
             

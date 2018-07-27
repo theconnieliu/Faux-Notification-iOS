@@ -67,6 +67,37 @@ class ListNotificationQueueTableViewController: UITableViewController {
         return cell
     }
     
+    // DELETE NOTIFICATION
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+////
+////            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notif.uuid)
+//
+//            self.notifications.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            print(self.notifications)
+//        }
+//
+    
+        
+        
+        
+        
+        
+        
+//        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+//            // share item at indexPath
+//            print("I want to share: \(self.notifications[indexPath.row])")
+//        }
+        
+        //share.backgroundColor = UIColor.lightGray
+        
+      //  return [delete/*, share*/]
+        
+  //  }
+    
     //MESSING AROUND OMG HELP
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
