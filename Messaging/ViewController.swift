@@ -11,37 +11,36 @@ import UserNotifications
 import CoreData
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
 
     @IBOutlet weak var senderInput: UITextField!
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var dateInput: UIDatePicker!
+    @IBOutlet weak var secondsInput: UIPickerView!
+    
+    // A CHANGE
+    let possibleSeconds : [Int] = Array(01...59)
+    
     @IBAction func dateInputSelected(_ sender: UIDatePicker) {
         
     }
+    
     @IBOutlet weak var createButton: UIButton!
-   
     @IBAction func createButtonPressed(_ sender: UIButton) {
         
-//        let content = UNMutableNotificationContent()
-//
-//        content.title = senderInput.text ?? "Anonymous"
-//        content.body = textInput.text ?? "Message from Anonymous"
-//        content.badge = 1
-//
-//        let uuid = UUID().uuidString
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
-//
-//        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
-    
     override func viewDidLoad() {
         setupViews()
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // A CHANGE
+        self.secondsInput.dataSource = self //as? UIPickerViewDataSource
+        self.secondsInput.delegate = self //as? UIPickerViewDelegate
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
@@ -90,7 +89,7 @@ class ViewController: UIViewController {
             
             triggerNotif(at: dateInput.date, for: contentBack)
             
-            triggerNotif(at: dateInput.date, for: contentBack)
+            //triggerNotif(at: dateInput.date, for: contentBack)
 
             let destination = segue.destination as! ListNotificationQueueTableViewController
 
@@ -111,18 +110,29 @@ class ViewController: UIViewController {
     
     func setupViews() {
         // nothing yet
-//        headerView.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        headerView.layer.shadowOpacity = 0.05
-//        headerView.layer.shadowColor = UIColor.black.cgColor
-//        headerView.layer.shadowRadius = 35
+
         createButton.layer.cornerRadius = 7
         createButton.layer.masksToBounds = true
         textInput.layer.cornerRadius = 6
         textInput.layer.masksToBounds = true
-//        textInput.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        textInput.layer.shadowOpacity = 0.1
-//        textInput.layer.shadowColor = UIColor.black.cgColor
-//        textInput.layer.shadowRadius = 35
+
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return possibleSeconds.count
+    }
+    //MARK: Delegates
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        if possibleSeconds[row] < 10 {
+           return String(": 0\(possibleSeconds[row])")
+        }
+        else {
+            return String(": \(possibleSeconds[row])")
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //myLabel.text = possibleSeconds[row]
     }
 
 
