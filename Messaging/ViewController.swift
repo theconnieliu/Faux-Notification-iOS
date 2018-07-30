@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import CoreData
 
 
 class ViewController: UIViewController {
@@ -48,6 +49,26 @@ class ViewController: UIViewController {
         
     }
 
+    fileprivate func triggerNotif(at date: Date, for notif: Notif) {
+        let uuid = UUID().uuidString
+        notif.uuid = uuid
+        
+        //Create UNMutableNotification
+        let content = UNMutableNotificationContent()
+        
+        content.title = notif.title ?? "Anonymous"
+        content.body = notif.body ?? "Message from Anonymous"
+        content.badge = 1
+        
+        //???????? adjust seconds of the date that was given ?????????
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         
@@ -61,31 +82,18 @@ class ViewController: UIViewController {
         case "createNotif":
             
             //Create Notif Object
-            let contentBack = Notif()
+            let contentBack = CoreDataHelper.newNotif()
+            
             contentBack.title = senderInput.text ?? "Anonymous"
             contentBack.body = textInput.text ?? "Message from Anonymous"
             contentBack.triggerTime = dateInput.date
             
-            //Create UNMutableNotification
-            let content = UNMutableNotificationContent()
+            triggerNotif(at: dateInput.date, for: contentBack)
             
-            content.title = contentBack.title
-            content.body = contentBack.body
-            content.badge = 1
-            
-            let uuid = UUID().uuidString
-            
-            //Set Notif's uuid
-            contentBack.uuid = uuid
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
-            
-            let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-            
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
+            triggerNotif(at: dateInput.date, for: contentBack)
+
             let destination = segue.destination as! ListNotificationQueueTableViewController
-            
+
             destination.notifications.append(contentBack)
             
             

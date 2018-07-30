@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import CoreData
 
 class ListNotificationQueueTableViewController: UITableViewController {
     
@@ -21,6 +22,8 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notifications = CoreDataHelper.retrieveNotifs()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -58,7 +61,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
         cell.senderQueueLabel.text = notif.title
         cell.contentQueueLabel.text = notif.body
-        cell.deliveryTimeLabel.text = notif.triggerTime.toString(dateFormat: "MM-dd-yyyy HH:mm:ss")
+        cell.deliveryTimeLabel.text = notif.triggerTime?.toString(dateFormat: "MM-dd-yyyy HH:mm:ss")
         
         cell.contentQueueLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.contentQueueLabel.numberOfLines = 0

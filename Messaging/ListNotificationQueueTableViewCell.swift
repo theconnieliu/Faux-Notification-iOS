@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ListNotificationQueueTableViewCell: UITableViewCell {
     @IBOutlet weak var senderQueueLabel: UILabel!
