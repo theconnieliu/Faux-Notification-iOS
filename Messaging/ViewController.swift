@@ -17,13 +17,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return 1
     }
     
-
     @IBOutlet weak var senderInput: UITextField!
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var dateInput: UIDatePicker!
     @IBOutlet weak var secondsInput: UIPickerView!
     
-    // A CHANGE
     let possibleSeconds : [Int] = Array(01...59)
     
     @IBAction func dateInputSelected(_ sender: UIDatePicker) {
@@ -95,13 +93,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
             destination.notifications.append(contentBack)
             
-            
-            
         default:
             print("unexpected segue identifier")
         }
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,19 +104,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func setupViews() {
-        // nothing yet
-
         createButton.layer.cornerRadius = 7
         createButton.layer.masksToBounds = true
         textInput.layer.cornerRadius = 6
         textInput.layer.masksToBounds = true
-
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return possibleSeconds.count
     }
-    //MARK: Delegates
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
         if possibleSeconds[row] < 10 {
            return String(": 0\(possibleSeconds[row])")
