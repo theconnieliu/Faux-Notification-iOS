@@ -85,8 +85,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             //Create Notif Object
             
-            //CHECK IF INPUT DATE IS AFTER CURRENT TIME.
-            
+            //Checks if input date is after current date
             if dateInput.date > Date() {
                 
                 let contentBack = CoreDataHelper.newNotif()
@@ -100,23 +99,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 let destination = segue.destination as! ListNotificationQueueTableViewController
                 
                 destination.notifications.append(contentBack)
-            } 
-            
-//            let contentBack = CoreDataHelper.newNotif()
-//
-//            contentBack.title = senderInput.text ?? "Anonymous"
-//            contentBack.body = textInput.text ?? "Message from Anonymous"
-//            contentBack.triggerTime = dateInput.date
-//
-//            triggerNotif(at: dateInput.date, for: contentBack)
-//
-//            let destination = segue.destination as! ListNotificationQueueTableViewController
-//
-//            destination.notifications.append(contentBack)
-            
+            } else {
+                createAlert(title: "Hello!", message: "Please select a valid delivery time. (Make sure it's not in the past!)")
+            }
+
         default:
             print("unexpected segue identifier")
         }
+    }
+    
+    func createAlert (title:String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title:"Okay", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("Okay")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
