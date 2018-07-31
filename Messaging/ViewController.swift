@@ -11,8 +11,9 @@ import UserNotifications
 import CoreData
 
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    let possibleSeconds : [Int] = Array(01...59)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -26,33 +27,31 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var selectedSecond: Int!{
         didSet{
             let calendar = Calendar.current
-            let date =   calendar.date(bySetting: .second, value: selectedSecond, of: dateInput.date) //calendar.date(byAdding: .second, value: selectedSecond , to: dateInput.date)
-                
+            let date =   calendar.date(bySetting: .second, value: selectedSecond, of: dateInput.date)
             dateInput.date = date!
         }
     }
     
-    let possibleSeconds : [Int] = Array(01...59)
-    
     @IBAction func dateInputSelected(_ sender: UIDatePicker) {
-        
     }
-    
     @IBOutlet weak var createButton: UIButton!
     @IBAction func createButtonPressed(_ sender: UIButton) {
-        
     }
+    
     override func viewDidLoad() {
         setupViews()
+        
+        
+        dateInput.minimumDate = Date()
         super.viewDidLoad()
         
-        self.secondsInput.dataSource = self //as? UIPickerViewDataSource
-        self.secondsInput.delegate = self //as? UIPickerViewDelegate
+        self.secondsInput.dataSource = self
+        self.secondsInput.delegate = self
+        
+        
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-        })
-        
-        
+        })        
     }
 
     fileprivate func triggerNotif(at date: Date, for notif: Notif) {
@@ -90,21 +89,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             contentBack.title = senderInput.text ?? "Anonymous"
             contentBack.body = textInput.text ?? "Message from Anonymous"
-            
             contentBack.triggerTime = dateInput.date
-            
-            //let calendar = dateInput.date
-            
-            //let fullTime = dateInput.returnSeconds(input: dateInput)
-            
-            
-            //contentBack.triggerTime = fullTime
-            
-            //.dateComponents.second = secondInput
-            //fullTime?.zeroSeconds.seconds
-            //contentBack.triggerTime = fullTime
-            
-            
             
             triggerNotif(at: dateInput.date, for: contentBack)
 
@@ -146,6 +131,5 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         selectedSecond = possibleSeconds[row]
     }
     
-
 }
 

@@ -18,6 +18,10 @@ extension Date
         return dateFormatter.string(from: self)
     }
     
+    func setBoundary() {
+        
+    }
+    
 //    var zeroSeconds: Date? {
 //        get {
 //            let calender = Calendar.current
