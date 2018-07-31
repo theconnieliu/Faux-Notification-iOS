@@ -41,17 +41,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         setupViews()
         
-        
-        dateInput.minimumDate = Date()
+        //sets minimum date to current date and time
+//        dateInput.minimumDate = Date()
         super.viewDidLoad()
         
         self.secondsInput.dataSource = self
         self.secondsInput.delegate = self
         
-        
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dateInput.minimumDate = Date()
     }
 
     fileprivate func triggerNotif(at date: Date, for notif: Notif) {
