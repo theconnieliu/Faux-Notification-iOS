@@ -22,6 +22,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var dateInput: UIDatePicker!
     @IBOutlet weak var secondsInput: UIPickerView!
     
+    // Updates the DatePicker Date with the Seconds value from the secondsInput PickerView
+    var selectedSecond: Int!{
+        didSet{
+            let calendar = Calendar.current
+            let date =   calendar.date(bySetting: .second, value: selectedSecond, of: dateInput.date) //calendar.date(byAdding: .second, value: selectedSecond , to: dateInput.date)
+                
+            dateInput.date = date!
+        }
+    }
+    
     let possibleSeconds : [Int] = Array(01...59)
     
     @IBAction func dateInputSelected(_ sender: UIDatePicker) {
@@ -36,7 +46,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         setupViews()
         super.viewDidLoad()
         
-        // A CHANGE
         self.secondsInput.dataSource = self //as? UIPickerViewDataSource
         self.secondsInput.delegate = self //as? UIPickerViewDelegate
         
@@ -56,8 +65,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         content.title = notif.title ?? "Anonymous"
         content.body = notif.body ?? "Message from Anonymous"
         content.badge = 1
-        
-        //???????? adjust seconds of the date that was given ?????????
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow, repeats: false)
         
@@ -83,11 +90,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             contentBack.title = senderInput.text ?? "Anonymous"
             contentBack.body = textInput.text ?? "Message from Anonymous"
+            
             contentBack.triggerTime = dateInput.date
             
-            triggerNotif(at: dateInput.date, for: contentBack)
+            //let calendar = dateInput.date
             
-            //triggerNotif(at: dateInput.date, for: contentBack)
+            //let fullTime = dateInput.returnSeconds(input: dateInput)
+            
+            
+            //contentBack.triggerTime = fullTime
+            
+            //.dateComponents.second = secondInput
+            //fullTime?.zeroSeconds.seconds
+            //contentBack.triggerTime = fullTime
+            
+            
+            
+            triggerNotif(at: dateInput.date, for: contentBack)
 
             let destination = segue.destination as! ListNotificationQueueTableViewController
 
@@ -124,9 +143,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //myLabel.text = possibleSeconds[row]
+        selectedSecond = possibleSeconds[row]
     }
-
+    
 
 }
 
