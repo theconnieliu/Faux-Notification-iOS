@@ -86,6 +86,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
         case "createNotif":
             
+            if senderInput.text == "" {
+               createAlert(title: "Hello!", message: "Who is this notification from?")
+            }
+            
+            if textInput.text == "" {
+                createAlert(title: "Hello!", message: "What does this notification say?")
+            }
+//            guard senderInput.text != nil else {
+//                createAlert(title: "Hello!", message: "Who is this notification from?")
+//                return
+//            }
+//
+//            guard (textInput.text) != nil else {
+//                createAlert(title: "Hello", message: "What will this notification say?")
+//                return
+//            }
+            
             //Create Notif Object
             
             //Checks if input date is after current date
@@ -159,8 +176,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
         return true
     }
-    
-    
     
 }
 
