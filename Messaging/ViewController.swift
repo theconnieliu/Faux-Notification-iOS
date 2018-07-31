@@ -11,7 +11,7 @@ import UserNotifications
 import CoreData
 
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate{
     
     let possibleSeconds : [Int] = Array(01...59)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -43,6 +43,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         //sets minimum date to current date and time
 //        dateInput.minimumDate = Date()
+        senderInput.delegate = self
+        textInput.delegate = self
+        
         super.viewDidLoad()
         
         self.secondsInput.dataSource = self
@@ -145,6 +148,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedSecond = possibleSeconds[row]
     }
+    
+    // Dismisses Keyboard when View outside input fields is tapped
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        return true
+    }
+    
+    
     
 }
 
