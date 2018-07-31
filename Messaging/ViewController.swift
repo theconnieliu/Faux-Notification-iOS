@@ -77,9 +77,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         
-        //        if identifier == "showQueue" {
-        //            print("Transitioning to the Queue List")
-        //        }
         switch identifier {
         case "showQueue":
             print("show queue pressed")
@@ -87,17 +84,35 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case "createNotif":
             
             //Create Notif Object
-            let contentBack = CoreDataHelper.newNotif()
             
-            contentBack.title = senderInput.text ?? "Anonymous"
-            contentBack.body = textInput.text ?? "Message from Anonymous"
-            contentBack.triggerTime = dateInput.date
+            //CHECK IF INPUT DATE IS AFTER CURRENT TIME.
             
-            triggerNotif(at: dateInput.date, for: contentBack)
-
-            let destination = segue.destination as! ListNotificationQueueTableViewController
-
-            destination.notifications.append(contentBack)
+            if dateInput.date > Date() {
+                
+                let contentBack = CoreDataHelper.newNotif()
+                
+                contentBack.title = senderInput.text ?? "Anonymous"
+                contentBack.body = textInput.text ?? "Message from Anonymous"
+                contentBack.triggerTime = dateInput.date
+                
+                triggerNotif(at: dateInput.date, for: contentBack)
+                
+                let destination = segue.destination as! ListNotificationQueueTableViewController
+                
+                destination.notifications.append(contentBack)
+            } 
+            
+//            let contentBack = CoreDataHelper.newNotif()
+//
+//            contentBack.title = senderInput.text ?? "Anonymous"
+//            contentBack.body = textInput.text ?? "Message from Anonymous"
+//            contentBack.triggerTime = dateInput.date
+//
+//            triggerNotif(at: dateInput.date, for: contentBack)
+//
+//            let destination = segue.destination as! ListNotificationQueueTableViewController
+//
+//            destination.notifications.append(contentBack)
             
         default:
             print("unexpected segue identifier")
