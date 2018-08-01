@@ -43,14 +43,14 @@
                                 <rect key="frame" x="107" y="189" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nSb-cQ-rNX">
                                 <rect key="frame" x="107" y="234" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1FD-dZ-Fts">
@@ -110,7 +110,7 @@
             </objects>
             <point key="canvasLocation" x="965.60000000000002" y="124.58770614692655"/>
         </scene>
-        <!--List Notification Queue Table View Controller-->
+        <!--Queue-->
         <scene sceneID="ztV-8O-slD">
             <objects>
                 <tableViewController id="HgS-zE-E0E" customClass="ListNotificationQueueTableViewController" customModule="Messaging" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,6 +169,16 @@
                             <outlet property="delegate" destination="HgS-zE-E0E" id="du6-sq-AAa"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Queue" id="30o-zN-rPa">
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" style="plain" id="qfN-lg-zbV">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GoJ-8V-LXZ">
+                                <rect key="frame" x="276" y="6" width="83" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Delete All"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhh-8v-FmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

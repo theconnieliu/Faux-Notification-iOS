@@ -9,7 +9,6 @@
 
 //ADD DELETE ALL BUTTON
 
-// ADD ZERO SECONDS OPTION
 import UIKit
 import UserNotifications
 import CoreData
@@ -31,6 +30,10 @@ class ListNotificationQueueTableViewController: UITableViewController {
         super.viewDidLoad()
         
         notifications = CoreDataHelper.retrieveNotifs()
+        
+        //self.navigationItem.backBarButtonItem?.title = "Back"
+        
+        //ListNotificationQueueTableViewController.
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
