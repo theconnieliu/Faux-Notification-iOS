@@ -15,12 +15,6 @@ class ListNotificationQueueTableViewController: UITableViewController {
     
     var notifications = [Notif]() {
         didSet {
-            
-            // THINGS TO DO
-            // REORDER TABLE VIEW
-            // DELETE ACTUAL NOTIFICATION WHEN USER WANTS TO
-            
-            //tableView.sort() { $0.triggerTime > $1.triggerTime }
             notifications = notifications.sorted(by: {
                 $0.triggerTime?.compare($1.triggerTime!) == .orderedAscending
             })
@@ -39,6 +33,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,12 +75,17 @@ class ListNotificationQueueTableViewController: UITableViewController {
     // Delete Notification in TableView
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifications[indexPath.row].uuid!])
+            
+            CoreDataHelper.delete(notif: notifications[indexPath.item])
             notifications.remove(at: indexPath.row)
             
-            // MUST REMOVE ACTUAL NOTIFICATION, NOT JUST TABLEVIEW CELL
-//            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifications[indexPath.row].uuid!])
             tableView.reloadData()
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            
+// currently removes notification, but not cell in TableViewCell
         }
+        
     }
     
     
