@@ -13,7 +13,7 @@ import CoreData
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate{
     
-    let possibleSeconds : [Int] = Array(01...59)
+    let possibleSeconds : [Int] = Array(0...59)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

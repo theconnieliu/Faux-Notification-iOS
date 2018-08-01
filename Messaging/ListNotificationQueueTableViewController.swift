@@ -6,6 +6,10 @@
 //  Copyright © 2018 Connie Liu. All rights reserved.
 //
 
+
+//ADD DELETE ALL BUTTON
+
+// ADD ZERO SECONDS OPTION
 import UIKit
 import UserNotifications
 import CoreData
@@ -79,9 +83,9 @@ class ListNotificationQueueTableViewController: UITableViewController {
             
             CoreDataHelper.delete(notif: notifications[indexPath.item])
             notifications.remove(at: indexPath.row)
-            
-            tableView.reloadData()
             //tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
             
 // currently removes notification, but not cell in TableViewCell
         }
