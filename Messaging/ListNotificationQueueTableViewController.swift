@@ -15,6 +15,15 @@ class ListNotificationQueueTableViewController: UITableViewController {
     
     var notifications = [Notif]() {
         didSet {
+            
+            // THINGS TO DO
+            // REORDER TABLE VIEW
+            // DELETE ACTUAL NOTIFICATION WHEN USER WANTS TO
+            
+            //tableView.sort() { $0.triggerTime > $1.triggerTime }
+            notifications = notifications.sorted(by: {
+                $0.triggerTime?.compare($1.triggerTime!) == .orderedAscending
+            })
             tableView.reloadData()
         }
     }
@@ -47,7 +56,6 @@ class ListNotificationQueueTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return notifications.count
-        //return notifications.count
     }
 
     
@@ -69,70 +77,16 @@ class ListNotificationQueueTableViewController: UITableViewController {
         return cell
     }
     
-    // DELETE NOTIFICATION
-    
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-////
-////            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notif.uuid)
-//
-//            self.notifications.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            print(self.notifications)
-//        }
-//
-    
-        
-        
-        
-        
-        
-        
-//        let share = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
-//            // share item at indexPath
-//            print("I want to share: \(self.notifications[indexPath.row])")
-//        }
-        
-        //share.backgroundColor = UIColor.lightGray
-        
-      //  return [delete/*, share*/]
-        
-  //  }
-    
-    //MESSING AROUND OMG HELP
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let identifier = segue.identifier else { return }
-//
-////        if identifier == "showQueue" {
-////            print("Transitioning to the Queue List")
-////        }
-//        switch identifier {
-//        case "showQueue":
-//            print("show queue pressed")
-//
-//        case "createNotif":
-//            //print("create Notification pressed")
-//            let content = UNMutableNotificationContent()
-//
-//            content.title = senderInput.text ?? "Anonymous"
-//            content.body = textInput.text ?? "Message from Anonymous"
-//            content.badge = 1
-//
-//            let uuid = UUID().uuidString
-//
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: /*dateInput.date.timeIntervalSinceNow*/ 5, repeats: false)
-//
-//            let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-//
-//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//
-//        default:
-//            print("unexpected segue identifier")
-//        }
-//    }
-    
+    // Delete Notification in TableView
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            notifications.remove(at: indexPath.row)
+            
+            // MUST REMOVE ACTUAL NOTIFICATION, NOT JUST TABLEVIEW CELL
+//            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifications[indexPath.row].uuid!])
+            tableView.reloadData()
+        }
+    }
     
     
     /*

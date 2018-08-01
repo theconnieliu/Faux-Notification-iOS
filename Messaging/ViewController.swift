@@ -42,7 +42,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         setupViews()
         
         //sets minimum date to current date and time
-//        dateInput.minimumDate = Date()
         senderInput.delegate = self
         textInput.delegate = self
         
@@ -93,17 +92,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             if textInput.text == "" {
                 createAlert(title: "Hello!", message: "What does this notification say?")
             }
-//            guard senderInput.text != nil else {
-//                createAlert(title: "Hello!", message: "Who is this notification from?")
-//                return
-//            }
-//
-//            guard (textInput.text) != nil else {
-//                createAlert(title: "Hello", message: "What will this notification say?")
-//                return
-//            }
             
-            //Create Notif Object
             
             //Checks if input date is after current date
             if dateInput.date > Date() {
@@ -120,6 +109,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 
                 destination.notifications.append(contentBack)
             } else {
+                //Alert user of error
                 createAlert(title: "Hello!", message: "Please select a valid delivery time. (Make sure it's not in the past!)")
             }
 
@@ -139,7 +129,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupViews() {
@@ -173,7 +162,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-
         return true
     }
     
