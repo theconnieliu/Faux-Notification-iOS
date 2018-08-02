@@ -11,26 +11,11 @@ import UserNotifications
 import CoreData
 
 class ListNotificationQueueTableViewController: UITableViewController {
-    
-    @IBOutlet weak var deleteAll: UIBarButtonItem!
-    
-    @IBAction func deleteAllPressed(_ sender: UIBarButtonItem) {
-        
-       
-//        let numNotif = notifications.count
-//
-//        for var index in 1...numNotif {
-//
-//
-//        //UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifications[index].uuid!])
-//
-//            CoreDataHelper.delete(notif: notifications[index])
-//            notifications.remove(at: index)
-//            tableView.reloadData()
-//
-//            index -= 1
-//        }
-    }
+   
+    // MAKE INTRODUCTION / EXPLANATION PAGE
+    // LOOK INTO RESOURCES PROVIDED BY YVES
+    // CUSTOMIZE NAVIGATION BAR
+    // UPDATE TABLE VIEW CELL THAT THE NOTIFICATION HAS BEEN DELIVERED
     
     var notifications = [Notif]() {
         didSet {
