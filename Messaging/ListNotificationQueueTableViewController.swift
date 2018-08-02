@@ -6,15 +6,31 @@
 //  Copyright © 2018 Connie Liu. All rights reserved.
 //
 
-
-//ADD DELETE ALL BUTTON
-
 import UIKit
 import UserNotifications
 import CoreData
 
 class ListNotificationQueueTableViewController: UITableViewController {
     
+    @IBOutlet weak var deleteAll: UIBarButtonItem!
+    
+    @IBAction func deleteAllPressed(_ sender: UIBarButtonItem) {
+        
+       
+//        let numNotif = notifications.count
+//
+//        for var index in 1...numNotif {
+//
+//
+//        //UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifications[index].uuid!])
+//
+//            CoreDataHelper.delete(notif: notifications[index])
+//            notifications.remove(at: index)
+//            tableView.reloadData()
+//
+//            index -= 1
+//        }
+    }
     
     var notifications = [Notif]() {
         didSet {
@@ -30,8 +46,6 @@ class ListNotificationQueueTableViewController: UITableViewController {
         super.viewDidLoad()
         
         notifications = CoreDataHelper.retrieveNotifs()
-        
-        //self.navigationItem.backBarButtonItem?.title = "Back"
         
         //ListNotificationQueueTableViewController.
 
@@ -75,7 +89,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
         
         cell.contentQueueLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.contentQueueLabel.numberOfLines = 0
-
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }
     
@@ -86,7 +100,6 @@ class ListNotificationQueueTableViewController: UITableViewController {
             
             CoreDataHelper.delete(notif: notifications[indexPath.item])
             notifications.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
             
             
@@ -95,6 +108,9 @@ class ListNotificationQueueTableViewController: UITableViewController {
         
     }
     
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
     /*
     // Override to support conditional editing of the table view.

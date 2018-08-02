@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F08BE6221078D260073D92D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F08BE6121078D260073D92D /* AppDelegate.swift */; };
-		6F08BE6421078D260073D92D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F08BE6321078D260073D92D /* ViewController.swift */; };
 		6F08BE6721078D260073D92D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F08BE6521078D260073D92D /* Main.storyboard */; };
 		6F08BE6921078D290073D92D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F08BE6821078D290073D92D /* Assets.xcassets */; };
 		6F08BE6C21078D290073D92D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F08BE6A21078D290073D92D /* LaunchScreen.storyboard */; };
@@ -17,6 +16,7 @@
 		6F3A6C0D210BB0660037F07A /* ConvertDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A6C0C210BB0650037F07A /* ConvertDateToString.swift */; };
 		6F3A6C10210BBEFB0037F07A /* Notif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A6C0E210BBEFB0037F07A /* Notif.xcdatamodeld */; };
 		6F3A6C12210BC7DE0037F07A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A6C11210BC7DE0037F07A /* CoreDataHelper.swift */; };
+		6FD3173B2113B5080075DE7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F08BE6321078D260073D92D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,11 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F08BE6421078D260073D92D /* ViewController.swift in Sources */,
 				6F3A6C10210BBEFB0037F07A /* Notif.xcdatamodeld in Sources */,
 				6F08BE6221078D260073D92D /* AppDelegate.swift in Sources */,
 				6F3A6C12210BC7DE0037F07A /* CoreDataHelper.swift in Sources */,
 				6F08BE76210935630073D92D /* ListNotificationQueueTableViewCell.swift in Sources */,
+				6FD3173B2113B5080075DE7F /* ViewController.swift in Sources */,
 				6F08BE742109218E0073D92D /* ListNotificationQueueTableViewController.swift in Sources */,
 				6F3A6C0D210BB0660037F07A /* ConvertDateToString.swift in Sources */,
 			);

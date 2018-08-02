@@ -41,7 +41,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         setupViews()
         
-        //sets minimum date to current date and time
         senderInput.delegate = self
         textInput.delegate = self
         
