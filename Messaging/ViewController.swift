@@ -82,6 +82,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         switch identifier {
         case "showQueue":
             print("show queue pressed")
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
             
         case "createNotif":
             
