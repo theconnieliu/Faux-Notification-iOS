@@ -12,11 +12,12 @@ import CoreData
 
 class ListNotificationQueueTableViewController: UITableViewController {
    
-    // MAKE INTRODUCTION / EXPLANATION PAGE
     // LOOK INTO RESOURCES PROVIDED BY YVES
     // CUSTOMIZE NAVIGATION BAR
     // UPDATE TABLE VIEW CELL THAT THE NOTIFICATION HAS BEEN DELIVERED
     // MAKE TEXT OPTIONALS
+    // UPDATE THE MORE INFO ICON
+    // FORMAT THE ALERT CONTENT TO SHOW A LIST
     
     var notifications = [Notif]() {
         didSet {
