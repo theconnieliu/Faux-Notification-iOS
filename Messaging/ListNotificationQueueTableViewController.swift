@@ -16,6 +16,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
     // LOOK INTO RESOURCES PROVIDED BY YVES
     // CUSTOMIZE NAVIGATION BAR
     // UPDATE TABLE VIEW CELL THAT THE NOTIFICATION HAS BEEN DELIVERED
+    // MAKE TEXT OPTIONALS
     
     var notifications = [Notif]() {
         didSet {
