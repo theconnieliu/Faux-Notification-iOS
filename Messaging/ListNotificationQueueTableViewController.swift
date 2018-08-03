@@ -24,7 +24,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
             })
             tableView.reloadData()
         }
-    }
+    }//a measure of just how badly one has to try to seem nonchalant.
     
 
     override func viewDidLoad() {

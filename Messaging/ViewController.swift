@@ -50,7 +50,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.secondsInput.delegate = self
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
-        })        
+        })
+        
+        // set default seconds to 0
+        let calendar = Calendar.current
+        let date =   calendar.date(bySetting: .second, value: 0, of: dateInput.date)
+        dateInput.date = date!
     }
     
     override func viewWillAppear(_ animated: Bool) {
