@@ -22,6 +22,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var textInput: UITextView!
     @IBOutlet weak var dateInput: UIDatePicker!
     @IBOutlet weak var secondsInput: UIPickerView!
+    @IBOutlet weak var moreInfo: UIBarButtonItem!
+    @IBAction func moreInfoPressed(_ sender: UIBarButtonItem) {
+        createAlert(title: "Welcome to Faux Messaging!", message: "1. Enter in the name or number you'd like to receive the notification from. 2. Select what time you'd like to receive the notification! 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!")
+    }
+    
+    
     
     // Updates the DatePicker Date with the Seconds value from the secondsInput PickerView
     var selectedSecond: Int!{

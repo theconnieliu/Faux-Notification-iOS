@@ -92,6 +92,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Faux Messaging" id="EOv-o8-47v">
+                        <barButtonItem key="leftBarButtonItem" title="Info" id="TRY-6E-4Ad">
+                            <connections>
+                                <action selector="moreInfoPressed:" destination="BYZ-38-t0r" id="KR4-ye-TjF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Queue" id="7Kd-ru-eFE">
                             <connections>
                                 <segue destination="HgS-zE-E0E" kind="show" identifier="showQueue" id="uoI-dN-xX8"/>
@@ -101,6 +106,7 @@
                     <connections>
                         <outlet property="createButton" destination="WhW-I6-j95" id="BMm-q7-ZlZ"/>
                         <outlet property="dateInput" destination="1FD-dZ-Fts" id="GxN-Cx-Chh"/>
+                        <outlet property="moreInfo" destination="TRY-6E-4Ad" id="QRy-cT-aqB"/>
                         <outlet property="secondsInput" destination="wlq-nI-b5H" id="nK0-B0-6CT"/>
                         <outlet property="senderInput" destination="OiK-84-t2p" id="I9W-Py-RmV"/>
                         <outlet property="textInput" destination="nSb-cQ-rNX" id="mcI-iU-cpo"/>
