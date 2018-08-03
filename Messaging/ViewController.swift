@@ -92,6 +92,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
         case "createNotif":
             
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+            
             if senderInput.text == "" {
                createAlert(title: "Hello!", message: "Make sure to specify who this notification is from!")
                break
