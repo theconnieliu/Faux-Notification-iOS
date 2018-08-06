@@ -65,7 +65,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+//        let nav = self.navigationController?.navigationBar
+//        nav?.barStyle = UIBarStyle.black
+//        nav?.tintColor = UIColor.white
+        
+//        super.viewWillAppear(animated)
+//        UIApplication.shared.statusBarStyle = .lightContent
+        
         dateInput.minimumDate = Date()
+    }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 
     fileprivate func triggerNotif(at date: Date, for notif: Notif) {
