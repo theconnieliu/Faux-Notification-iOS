@@ -65,6 +65,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.secondsInput.dataSource = self
         self.secondsInput.delegate = self
         
+        
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
         
@@ -75,20 +77,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        let nav = self.navigationController?.navigationBar
-//        nav?.barStyle = UIBarStyle.black
-//        nav?.tintColor = UIColor.white
-        
-//        super.viewWillAppear(animated)
-//        UIApplication.shared.statusBarStyle = .lightContent
         
         //TRYING TO RESIZE NAVIGATION BAR
 //        super.viewDidAppear(animated)
 //        let height: CGFloat = 300 //whatever height you want to add to the existing height
 //        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width + 20, height: bounds.height + height)
+      //self.title = "         Hello"
         
-        dateInput.minimumDate = Date()
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {

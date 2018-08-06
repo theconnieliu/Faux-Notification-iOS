@@ -17,8 +17,8 @@ class ListNotificationQueueTableViewController: UITableViewController {
     // UPDATE TABLE VIEW CELL THAT THE NOTIFICATION HAS BEEN DELIVERED
     // MAKE TEXT OPTIONALS
     // UPDATE THE MORE INFO ICON
-    // FORMAT THE ALERT CONTENT TO SHOW A LIST
     // ADD A CLEAR ALL BUTTON
+    // TOGGLE BETWEEN GREEN AND BLUE
     
     var notifications = [Notif]() {
         didSet {
@@ -27,7 +27,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
             })
             tableView.reloadData()
         }
-    }//a measure of just how badly one has to try to seem nonchalant.
+    }
     
 
     override func viewDidLoad() {
