@@ -8,15 +8,17 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UNUserNotificationCenter.current().delegate = self
         //Customizes navigatin bar
         var navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.tintColor = UIColor(rgb: 0xFFFFFF)
@@ -29,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        // Shows notification even when still on application
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+        {
+            completionHandler([.alert, .badge, .sound])
+        }
         
         
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent

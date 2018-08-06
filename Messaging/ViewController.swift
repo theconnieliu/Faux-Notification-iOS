@@ -11,7 +11,7 @@ import UserNotifications
 import CoreData
 
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate{
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     let possibleSeconds : [Int] = Array(0...59)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 //        createAlert(title: "Welcome to Faux Messaging!", message: "1. Enter in the name or number you'd like to receive the notification from. 2. Select what time you'd like to receive the notification! 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!")
         
         let alert = UIAlertController(title: "Welcome to Faux Messaging!",
-                                     message: "1. Enter in the name or number you'd like to receive the notification from. \n 2. Select what time you'd like to receive the notification. \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!",
+                                     message: "\n 1. Enter in the name or number you'd like to receive the notification from. \n \n 2. Select what time you'd like to receive the notification. \n \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!",
                                      preferredStyle: UIAlertControllerStyle.alert)
         
         let cancelAction = UIAlertAction(title: "OK",
@@ -78,13 +78,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //TRYING TO RESIZE NAVIGATION BAR
-//        super.viewDidAppear(animated)
-//        let height: CGFloat = 300 //whatever height you want to add to the existing height
-//        let bounds = self.navigationController!.navigationBar.bounds
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width + 20, height: bounds.height + height)
-      //self.title = "         Hello"
-        
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -100,7 +97,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         content.title = notif.title ?? "Anonymous"
         content.body = notif.body ?? "Message from Anonymous"
-        content.badge = 1
+//        UIApplication.shared.applicationIconBadgeNumber = 0
+        //content.badge = 1
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: date.timeIntervalSinceNow, repeats: false)
         
