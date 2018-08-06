@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Customizes navigatin bar
         var navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.tintColor = UIColor(rgb: 0xFFFFFF)
-        navigationBarAppearance.barTintColor = UIColor(rgb: 0x2E99F4)
+        navigationBarAppearance.barTintColor = UIColor(rgb: 0x28BE69)
         
         UIBarButtonItem.appearance()
         
