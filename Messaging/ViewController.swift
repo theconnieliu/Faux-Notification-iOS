@@ -24,7 +24,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var secondsInput: UIPickerView!
     @IBOutlet weak var moreInfo: UIBarButtonItem!
     @IBAction func moreInfoPressed(_ sender: UIBarButtonItem) {
-        createAlert(title: "Welcome to Faux Messaging!", message: "1. Enter in the name or number you'd like to receive the notification from. 2. Select what time you'd like to receive the notification! 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!")
+//        createAlert(title: "Welcome to Faux Messaging!", message: "1. Enter in the name or number you'd like to receive the notification from. 2. Select what time you'd like to receive the notification! 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!")
+        
+        let alert = UIAlertController(title: "Welcome to Faux Messaging!",
+                                     message: "1. Enter in the name or number you'd like to receive the notification from. \n 2. Select what time you'd like to receive the notification. \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!",
+                                     preferredStyle: UIAlertControllerStyle.alert)
+        
+        let cancelAction = UIAlertAction(title: "OK",
+                                         style: .cancel, handler: nil)
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -71,6 +81,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
 //        super.viewWillAppear(animated)
 //        UIApplication.shared.statusBarStyle = .lightContent
+        
+        //TRYING TO RESIZE NAVIGATION BAR
+//        super.viewDidAppear(animated)
+//        let height: CGFloat = 300 //whatever height you want to add to the existing height
+//        let bounds = self.navigationController!.navigationBar.bounds
+//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
         
         dateInput.minimumDate = Date()
     }

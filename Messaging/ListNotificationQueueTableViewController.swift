@@ -18,6 +18,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
     // MAKE TEXT OPTIONALS
     // UPDATE THE MORE INFO ICON
     // FORMAT THE ALERT CONTENT TO SHOW A LIST
+    // ADD A CLEAR ALL BUTTON
     
     var notifications = [Notif]() {
         didSet {

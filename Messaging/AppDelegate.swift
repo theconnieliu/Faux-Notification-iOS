@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
+        
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         //UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         return true
