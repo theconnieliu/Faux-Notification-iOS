@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.secondsInput.dataSource = self
         self.secondsInput.delegate = self
         
-        dateInput.minimumDate = Date()
+        
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        dateInput.minimumDate = Date()
     }
     
     override open var shouldAutorotate: Bool {
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func createAlert (title:String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title:"Okay", style: UIAlertActionStyle.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("Okay")
         }))
