@@ -26,17 +26,3 @@ extension UIColor {
         )
     }
 }
-
-//extension UINavigationBar {
-//    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        return CGSize(width: UIScreen.main.bounds.width, height: 200)
-//    }
-//}
-
-//extension UINavigationController {
-//    override open func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        let height = CGFloat(0)
-//        navigationBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: height)
-//    }
-//}

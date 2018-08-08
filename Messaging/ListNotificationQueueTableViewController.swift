@@ -11,14 +11,6 @@ import UserNotifications
 import CoreData
 
 class ListNotificationQueueTableViewController: UITableViewController {
-   
-    // LOOK INTO RESOURCES PROVIDED BY YVES
-    // CUSTOMIZE NAVIGATION BAR
-    // UPDATE TABLE VIEW CELL THAT THE NOTIFICATION HAS BEEN DELIVERED
-    // MAKE TEXT OPTIONALS
-    // UPDATE THE MORE INFO ICON
-    // ADD A CLEAR ALL BUTTON
-    // TOGGLE BETWEEN GREEN AND BLUE
     
     var notifications = [Notif]() {
         didSet {
@@ -34,15 +26,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
         super.viewDidLoad()
         
         notifications = CoreDataHelper.retrieveNotifs()
-        
-        //ListNotificationQueueTableViewController.
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        //tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,13 +36,7 @@ class ListNotificationQueueTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    //override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-       // return 0
-  //  }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return notifications.count
     }
 
@@ -90,8 +68,6 @@ class ListNotificationQueueTableViewController: UITableViewController {
             notifications.remove(at: indexPath.row)
             tableView.reloadData()
             
-            
-// currently removes notification, but not cell in TableViewCell
         }
         
     }

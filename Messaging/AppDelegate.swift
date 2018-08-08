@@ -38,9 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             completionHandler([.alert, .badge, .sound])
         }
         
-        
-        //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        //UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         return true
         
     }
