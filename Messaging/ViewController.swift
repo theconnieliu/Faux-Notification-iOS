@@ -24,8 +24,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var secondsInput: UIPickerView!
     @IBOutlet weak var moreInfo: UIBarButtonItem!
     @IBAction func moreInfoPressed(_ sender: UIBarButtonItem) {
-//        createAlert(title: "Welcome to Faux Messaging!", message: "1. Enter in the name or number you'd like to receive the notification from. 2. Select what time you'd like to receive the notification! 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!")
-        
         let alert = UIAlertController(title: "Welcome to Faux Messaging!",
                                      message: "\n 1. Enter in the name or number you'd like to receive the notification from. \n \n 2. Select what time you'd like to receive the notification. \n \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!",
                                      preferredStyle: UIAlertControllerStyle.alert)
@@ -74,8 +72,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         if screenHeight < 667.0 {
             navigationController?.navigationBar.prefersLargeTitles = false
         }
-
-        print(screenWidth)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, /*.badge*/], completionHandler: {didAllow, error in
         })
@@ -121,13 +117,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         switch identifier {
         case "showQueue":
-            print("show queue pressed")
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
             
         case "createNotif":
-            
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
@@ -162,7 +156,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             }
 
         default:
-            print("unexpected segue identifier")
+            print("Unexpected segue identifier")
         }
     }
     
@@ -170,7 +164,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title:"OK", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
-            print("Okay")
+            
         }))
         self.present(alert, animated: true, completion: nil)
     }
