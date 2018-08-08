@@ -54,6 +54,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func createButtonPressed(_ sender: UIButton) {
     }
     
+    // MARK: Lifecycle Methods
+    
     override func viewDidLoad() {
         setupViews()
         
@@ -65,7 +67,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         self.secondsInput.dataSource = self
         self.secondsInput.delegate = self
         
+        // if the screen size is smaller than x then
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        //change font size of picker view and date picker
+        //change row height of picker view and date picker
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         
+        if screenHeight < 667.0 {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        }
+//        let screenWidth = screenSize.width
+//        if screenWidth <= 375.0 {
+//            dateInput
+//        }
+        print(screenWidth)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
         })
@@ -195,8 +212,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+//
         return 32
     }
+//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        let screenSize = UIScreen.main.bounds
+//        let screenWidth = screenSize.width
+//        if screenWidth <= 375.0 {
+//            return 20
+//        }
+//        return 30
+//    }
+    
+    
     
     // Dismisses Keyboard when View outside input fields is tapped
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -207,6 +235,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    
+    
+    
+    // MARK: Pickerview delegate methods
+    
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//        return view!
+//    }
+    
+//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        <#code#>
+//    }
     
 }
 
