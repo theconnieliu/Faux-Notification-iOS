@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Faux Messaging-->
+        <!--Safety Messaging-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Messaging" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Faux Messaging" largeTitleDisplayMode="always" id="EOv-o8-47v">
+                    <navigationItem key="navigationItem" title="Safety Messaging" largeTitleDisplayMode="always" id="EOv-o8-47v">
                         <barButtonItem key="leftBarButtonItem" title="Info" id="TRY-6E-4Ad">
                             <connections>
                                 <action selector="moreInfoPressed:" destination="BYZ-38-t0r" id="KR4-ye-TjF"/>

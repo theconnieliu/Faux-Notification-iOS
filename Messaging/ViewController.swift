@@ -24,8 +24,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var secondsInput: UIPickerView!
     @IBOutlet weak var moreInfo: UIBarButtonItem!
     @IBAction func moreInfoPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Welcome to Faux Messaging!",
-                                     message: "\n 1. Enter in the name or number you'd like to receive the notification from. \n \n 2. Select what time you'd like to receive the notification. \n \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time!",
+        let alert = UIAlertController(title: "Welcome to Safety Messaging!",
+                                     message: "\n 1. Enter in the name of the guardian you'd like to receive the notification from. \n \n 2. Select what time you'd like to receive the notification. \n \n 3. Press Create Notification, and exit the app to see your notification delivered at your specified time! \n \n Stay safe!",
                                      preferredStyle: UIAlertControllerStyle.alert)
         
         let cancelAction = UIAlertAction(title: "OK",
